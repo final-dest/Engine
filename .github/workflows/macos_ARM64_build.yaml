@@ -54,12 +54,12 @@ jobs:
     - name: Build Wheels
       uses: pypa/cibuildwheel@v2.22.0
       env:
-        CIBW_SKIP: cp36-*
-        #CIBW_BUILD: cp311-macosx_arm64
+        #CIBW_SKIP: cp36-*
+        CIBW_BUILD: cp311-macosx_arm64
         CIBW_ARCHS_MACOS: arm64
-        MACOSX_DEPLOYMENT_TARGET: "13.7"
-        CIBW_ENVIRONMENT: MACOSX_DEPLOYMENT_TARGET=13.7
-        CXXFLAGS: -std=c++17 -g0 -O3 -mmacosx-version-min=13.7
+        MACOSX_DEPLOYMENT_TARGET: "14.7"
+        CIBW_ENVIRONMENT: MACOSX_DEPLOYMENT_TARGET=14.7
+        CXXFLAGS: -std=c++20 -g0 -O3 -mmacosx-version-min=14.7
         CIBW_BUILD_VERBOSITY: 2
         CIBW_REPAIR_WHEEL_COMMAND_MACOS: >
           DYLD_LIBRARY_PATH=/usr/local/lib delocate-listdeps {wheel} &&
