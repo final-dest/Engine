@@ -185,7 +185,7 @@ class my_build_ext(build_ext):
                             ('NDEBUG', None), ('_WINDOWS', None),
                             ('NOMINMAX', None)]
             # ORE and QuantLib specific flags
-            self.define += [('QL_ENABLE_SESSIONS', None)]
+            self.define += [('QL_ENABLE_SESSIONS', None), ('QL_USE_STD_ANY', None), ('QL_FASTER_LAZY_OBJECTS', None), ('QL_USE_STD_OPTIONAL', None)]
             if 'ORE_USE_ZLIB' in os.environ:
                 self.define += [('ORE_USE_ZLIB', None)]
             extra_compile_args = ['/GR', '/FD', '/Zm250', '/EHsc', '/bigobj', '/std:c++20', '/wd4996' ]
@@ -278,7 +278,7 @@ classifiers = [
 ]
 
 setup(name             = "open-source-risk-engine",
-      version          = "1.8.14.0",
+      version          = "1.8.14.1",
       description      = "Python bindings for the OREAnalytics library",
       long_description = """
 OREAnalytics (http://opensourcerisk.org/) is a C++ library for financial quantitative
